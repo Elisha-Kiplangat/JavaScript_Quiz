@@ -5,10 +5,15 @@
 
 function count(sentence){
     const lowerSentense = sentence.toLowerCase();
-    const vowel = lowerSentense.match(/[aeiou]/g);
-    return vowel ? vowel.length : 0;
+    const vowels = new Set();
+    for (const vowel of lowerSentense){
+        if ('aeiou'.includes(vowel)){
+            vowels.add(vowel);
+        }
+    }
+    return vowels.size;
     
 }
-const input = "Hello World";
-const vowelCount = count(input);
+const input1 = "Hello World";
+const vowelCount = count(input1);
 console.log(vowelCount);
